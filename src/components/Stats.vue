@@ -1,9 +1,13 @@
 <template>
-    <div>
-        <h2 class="display-3 font-weight-bold">Status</h2>
-        <p>There are currently {{countLinks}} links</p>
-        <v-btn v-on:click="removeAllLinks">Remove All</v-btn>
+    <div
+    style="padding: top; margin: top"
+    >
+        <v-card color="blue-grey darken-2" class="white--text" >
+        <h2 class="display-2 font-weight-bold">Status</h2>
+        <p class="title">There are currently {{countLinks}} links</p>
+        <v-btn round color="teal" v-on:click="removeAllLinks">Remove All</v-btn>
         <p>{{ msg }}</p>
+        </v-card>
     </div>
 </template>
 

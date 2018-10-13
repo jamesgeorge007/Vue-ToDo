@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="left">
+    <div class="center">
       <v-container>
       <h1 class="display-2 font-weight-black">{{ title }}</h1>
       <v-form @submit.prevent="addLink">
@@ -9,11 +9,14 @@
       </v-form>
       <v-list v-for="(link, index) in links" v-bind:key="index">
           {{ link }}
-          <v-btn v-on:click="removeLinks(index)">Remove</v-btn>
-      </v-list>
+          <div
+          style="padding: auto">
+          <v-btn round color="teal" v-on:click="removeLinks(index)">Remove</v-btn>
+          </div>
+        </v-list>
       </v-container>
     </div>
-    <div class="right">
+    <div class="center">
       <Stats />
     </div>
   </div>  
