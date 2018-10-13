@@ -7,11 +7,16 @@ export default new Vuex.Store({
     state: {
         title: 'Tasks',
         msg: '',
-        links: [
-            'Learn stuff',
-            'Hit gym',
-            'Code'
-        ]
+        links: [{
+            text: 'Learn stuff',
+            done: false
+        }, {
+            text: 'Hit gym',
+            done: false
+        }, {
+            text: 'Code',
+            done: true
+        }]
     },
 
     getters: {
@@ -22,11 +27,13 @@ export default new Vuex.Store({
 
     mutations: {
         ADD_LINK: (state, link) => {
-            state.links.push(link);
+            state.links.push({
+                text: link,
+                done: false
+            });
         },
         REMOVE_LINK: (state, link) => {
             state.links.splice(link, 1);
-            state.msg = 'It has been removed!';
         },
         REMOVE_ALL: (state) => {
             state.links = [];
@@ -36,6 +43,9 @@ export default new Vuex.Store({
         },
         UPDATE_STATUS: (state) => {
             state.msg = 'They have been removed!';
+        },
+        DONE_LINK: (state, obj) => {
+            state.links[obj.index].done = obj.done;
         }
     },
 
