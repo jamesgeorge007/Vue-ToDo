@@ -7,11 +7,16 @@ export default new Vuex.Store({
     state: {
         title: 'Tasks',
         msg: '',
-        tasks: [
-            'Learn stuff',
-            'Hit gym',
-            'Code'
-        ]
+        tasks: [{
+            text: 'Learn stuff',
+            done: false
+        }, {
+            text: 'Hit gym',
+            done: false
+        }, {
+            text: 'Code',
+            done: true
+        }]
     },
 
     getters: {
@@ -22,19 +27,26 @@ export default new Vuex.Store({
 
     mutations: {
         ADD_TASK: (state, task) => {
-            state.tasks.push(task);
+            state.tasks.push({
+                text: task,
+                done: false
+            });
         },
         REMOVE_TASK: (state, task) => {
             state.tasks.splice(task, 1);
+            state.msg = 'It has been removed!';
         },
         REMOVE_ALL: (state) => {
             state.tasks = [];
         },
-        REMOVE_STATUS :(state) => {
+        REMOVE_STATUS: (state) => {
             state.msg = '';
         },
         UPDATE_STATUS: (state) => {
             state.msg = 'They have been removed!';
+        },
+        DONE_TASK: (state, obj) => {
+            state.tasks[obj.index].done = obj.done;
         }
     },
 
@@ -42,7 +54,9 @@ export default new Vuex.Store({
         removeTask: (context, task) => {
             context.commit('REMOVE_TASK', task);
         },
-        removeAll({commit}) {
+        removeAll({
+            commit
+        }) {
             return new Promise((resolve, reject) => {
                 setTimeout(() => {
                     commit('REMOVE_ALL');
@@ -56,5 +70,5 @@ export default new Vuex.Store({
         updateStatus: (context) => {
             context.commit('UPDATE_STATUS');
         }
-    } 
-});       
+    }
+});
