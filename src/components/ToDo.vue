@@ -63,8 +63,8 @@ export default {
     },
     doneTasks: function(index, done) {
       this.DONE_TASK({
-        index: index,
-        done: done
+        index,
+        done
       });
       this.removeStatus();
     }
