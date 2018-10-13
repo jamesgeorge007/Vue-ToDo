@@ -26,11 +26,12 @@ export default new Vuex.Store({
         },
         REMOVE_LINK: (state, link) => {
             state.links.splice(link, 1);
+            state.msg = 'It has been removed!';
         },
         REMOVE_ALL: (state) => {
             state.links = [];
         },
-        REMOVE_STATUS :(state) => {
+        REMOVE_STATUS: (state) => {
             state.msg = '';
         },
         UPDATE_STATUS: (state) => {
@@ -42,7 +43,9 @@ export default new Vuex.Store({
         removeLink: (context, link) => {
             context.commit('REMOVE_LINK', link);
         },
-        removeAll({commit}) {
+        removeAll({
+            commit
+        }) {
             return new Promise((resolve, reject) => {
                 setTimeout(() => {
                     commit('REMOVE_ALL');
@@ -56,5 +59,5 @@ export default new Vuex.Store({
         updateStatus: (context) => {
             context.commit('UPDATE_STATUS');
         }
-    } 
-});       
+    }
+});
