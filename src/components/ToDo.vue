@@ -10,7 +10,7 @@
       <v-list v-for="(link, index) in links" v-bind:key="index">
           {{ link }}
           <div
-          style="padding: auto">
+          style="padding: auto"
           <v-btn round color="teal" v-on:click="removeLinks(index)">Remove</v-btn>
           </div>
         </v-list>
