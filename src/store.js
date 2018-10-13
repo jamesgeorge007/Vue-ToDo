@@ -7,7 +7,7 @@ export default new Vuex.Store({
     state: {
         title: 'Tasks',
         msg: '',
-        links: [{
+        tasks: [{
             text: 'Learn stuff',
             done: false
         }, {
@@ -20,23 +20,24 @@ export default new Vuex.Store({
     },
 
     getters: {
-        countLinks: state => {
-            return state.links.length;
+        countTasks: state => {
+            return state.tasks.length;
         }
     },
 
     mutations: {
-        ADD_LINK: (state, link) => {
-            state.links.push({
-                text: link,
+        ADD_TASK: (state, task) => {
+            state.tasks.push({
+                text: task,
                 done: false
             });
         },
-        REMOVE_LINK: (state, link) => {
-            state.links.splice(link, 1);
+        REMOVE_TASK: (state, task) => {
+            state.tasks.splice(task, 1);
+            state.msg = 'It has been removed!';
         },
         REMOVE_ALL: (state) => {
-            state.links = [];
+            state.tasks = [];
         },
         REMOVE_STATUS: (state) => {
             state.msg = '';
@@ -44,14 +45,14 @@ export default new Vuex.Store({
         UPDATE_STATUS: (state) => {
             state.msg = 'They have been removed!';
         },
-        DONE_LINK: (state, obj) => {
-            state.links[obj.index].done = obj.done;
+        DONE_TASK: (state, obj) => {
+            state.tasks[obj.index].done = obj.done;
         }
     },
 
     actions: {
-        removeLink: (context, link) => {
-            context.commit('REMOVE_LINK', link);
+        removeTask: (context, task) => {
+            context.commit('REMOVE_TASK', task);
         },
         removeAll({
             commit
