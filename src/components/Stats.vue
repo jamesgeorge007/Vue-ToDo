@@ -1,8 +1,8 @@
 <template>
     <div>
         <h2 class="display-3 font-weight-bold">Status</h2>
-        <p>There are currently {{countLinks}} links</p>
-        <v-btn v-on:click="removeAllLinks">Remove All</v-btn>
+        <p>There are currently {{countTasks}} tasks</p>
+        <v-btn v-on:click="removeAllTasks">Remove All</v-btn>
         <p>{{ msg }}</p>
     </div>
 </template>
@@ -14,7 +14,7 @@ export default {
   name: 'Stats',  
   computed: {
       ...mapGetters([
-        'countLinks'  
+        'countTasks'  
       ]),
       ...mapState([
           'msg'
@@ -28,7 +28,7 @@ export default {
           'removeAll',
           'updateStatus'
       ]),
-      removeAllLinks(){
+      removeAllTasks(){
           this.removeAll().then(() => {
               // Something happens here
           });
