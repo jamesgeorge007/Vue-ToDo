@@ -2,7 +2,7 @@
 
 > A ToDo app built just to demonstrate state management using vuex.
 
-## Contributor Guidelines
+### Contributor Guidelines
 
 - Clone the repository.
 - Install the dependencies with ```npm install```
