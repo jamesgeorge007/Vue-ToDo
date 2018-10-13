@@ -36,13 +36,16 @@ import Stats from "./Stats.vue";
 
 export default {
   name: "ToDo",
-  data() {
-    return {
-      newTask: ""
-    };
+  data () {
+    return{
+      newTask: ''
+    }
   },
   computed: {
-    ...mapState(["title", "tasks"])
+    ...mapState([
+      'title',
+      'tasks'
+  ]),
   },
   components: {
     Stats
