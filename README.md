@@ -1,5 +1,15 @@
 # store-sample
 
+> A ToDo app built just to demonstrate state management using vuex.
+
+## Contributor Guidelines
+
+- Clone the repository.
+- Install the dependencies with ```npm install```
+- Run the app locally with ```npm run serve```
+- Make your changes.
+- Push it to a new branch and submit a PR for review. 
+
 ## Project setup
 ```
 npm install
