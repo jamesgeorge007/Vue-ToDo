@@ -3,13 +3,13 @@
     <div class="left">
       <v-container>
       <h1 class="display-2 font-weight-black">{{ title }}</h1>
-      <v-form @submit.prevent="addLink">
-        <v-text-field label="Link" v-model="newLink" required>
+      <v-form @submit.prevent="addTask">
+        <v-text-field label="Task" v-model="newTask" required>
         </v-text-field>
       </v-form>
-      <v-list v-for="(link, index) in links" v-bind:key="index">
-          {{ link }}
-          <v-btn v-on:click="removeLinks(index)">Remove</v-btn>
+      <v-list v-for="(task, index) in tasks" v-bind:key="index">
+          {{ task }}
+          <v-btn v-on:click="removeTasks(index)">Remove</v-btn>
       </v-list>
       </v-container>
     </div>
@@ -27,13 +27,13 @@ export default {
   name: "ToDo",
   data () {
     return{
-      newLink: ''
+      newTask: ''
     }
   },
   computed: {
     ...mapState([
       'title',
-      'links'
+      'tasks'
   ]),
   },
   components: {
@@ -41,19 +41,19 @@ export default {
   },
   methods: {
     ...mapMutations([
-      'ADD_LINK'
+      'ADD_TASK'
     ]),
     ...mapActions([
-      'removeLink',
+      'removeTask',
       'removeStatus'
     ]),
-    addLink: function () {
-      this.ADD_LINK(this.newLink);
-      this.newLink = '';
+    addTask: function () {
+      this.ADD_TASK(this.newTask);
+      this.newTask = '';
       this.removeStatus();
     },
-    removeLinks: function (link)  {
-      this.removeLink(link);   
+    removeTasks: function (task)  {
+      this.removeTask(task);   
     }
   }
 };
