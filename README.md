@@ -1,6 +1,7 @@
 # store-sample
 
 > A ToDo app built just to demonstrate state management using vuex.
+![demo](demo.gif)
 
 ### Contributor Guidelines
 
