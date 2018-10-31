@@ -34,7 +34,7 @@ export default new Vuex.Store({
         },
         REMOVE_TASK: (state, task) => {
             state.tasks.splice(task, 1);
-            state.msg = 'It has been removed!';
+            state.msg = 'Successfully removed!';
         },
         REMOVE_ALL: (state) => {
             state.tasks = [];
