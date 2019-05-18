@@ -4,7 +4,7 @@
       <v-container>
         <h1 class="display-2 font-weight-black">{{ title }}</h1>
         <v-form @submit.prevent="addTask">
-          <v-text-field label="Task" v-model="newTask" required> </v-text-field>
+          <v-text-field label="Task" v-model="newTask"> </v-text-field>
         </v-form>
         <v-list
           v-for="(task, index) in tasks"
@@ -64,6 +64,10 @@ export default {
     ...mapMutations(["ADD_TASK", "DONE_TASK"]),
     ...mapActions(["removeTask", "removeStatus"]),
     addTask: function() {
+      if (!this.newTask) {
+        alert("Kindly provide a task");
+        return;
+      }
       this.ADD_TASK(this.newTask);
       this.newTask = "";
       this.removeStatus();

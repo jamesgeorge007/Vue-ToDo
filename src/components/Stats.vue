@@ -19,10 +19,8 @@ export default {
   methods: {
     ...mapMutations(["REMOVE_ALL"]),
     ...mapActions(["removeAll", "updateStatus"]),
-    removeAllTasks() {
-      this.removeAll().then(() => {
-        // Something happens here
-      });
+    async removeAllTasks() {
+      await this.removeAll();
       this.updateStatus();
     }
   }
