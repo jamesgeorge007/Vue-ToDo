@@ -2,6 +2,8 @@
 
 > A ToDo app built just to demonstrate state management using vuex.
 
+Available [here](http://vuex-todo-sample.surge.sh/)
+
 ![demo](demo.gif)
 
 ### Contributor Guidelines
