@@ -33,7 +33,7 @@
           >
             <i class="far fa-square fa-2x checkbox" v-on:click="doneTasks(index, false)"></i>
             <span class="task-text">{{ task.text }}</span>
-            <v-btn v-on:click="removeTasks(index)">Remove</v-btn>
+            <v-btn v-on:click="removeTasks(index)" class="align-self-end flex-shrink m-0">Remove</v-btn>
           </v-list>
         </div>
       </div>
@@ -287,6 +287,7 @@ i:hover {
 
 .task-text {
   display: flex;
+  flex-grow: 1;
   font-size: 1.25rem;
   text-align: left;
   margin: auto 0.5rem;
