@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h2 class="display-3 font-weight-bold">Status</h2>
+  <div class="d-flex flex-column align-items-center">
+    <h1 class="display-2 font-weight-bold mb-4">Status</h1>
     <p>There are currently {{ countTasks }} tasks</p>
     <v-btn v-on:click="removeAllTasks">Remove All</v-btn>
     <p>{{ msg }}</p>
